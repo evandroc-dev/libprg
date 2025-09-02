@@ -33,3 +33,11 @@ int desempilhar(pilha_t* pilha) {
         return elemento;
     }
 }
+
+bool vazia(pilha_t* pilha) {
+    if(pilha->topo < 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
