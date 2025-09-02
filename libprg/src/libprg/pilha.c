@@ -23,3 +23,13 @@ void empilhar(pilha_t* pilha, int elemento) {
     pilha->topo++;
     pilha->elementos[pilha->topo] = elemento;
 }
+
+int desempilhar(pilha_t* pilha) {
+    if(pilha->topo < 0) {
+        return -1; //erro de pilha vazia
+    } else {
+        int elemento = pilha->elementos[pilha->topo];
+        pilha->topo--;
+        return elemento;
+    }
+}
