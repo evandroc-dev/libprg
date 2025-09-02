@@ -1,7 +1,7 @@
 //
 // Created by aluno on 02/09/2025.
 //
-#include "header/lab_2.h"
+#include "libprg/libprg.h"
 
 #include <stdlib.h>
 
