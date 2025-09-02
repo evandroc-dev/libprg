@@ -2,7 +2,6 @@
 // Created by aluno on 02/09/2025.
 //
 #include "libprg/libprg.h"
-
 #include <stdlib.h>
 
 struct pilha {
@@ -40,4 +39,9 @@ bool vazia(pilha_t* pilha) {
     } else {
         return false;
     }
+}
+
+void destroi_pilha(pilha_t* pilha) {
+    free(pilha->elementos);
+    free(pilha);
 }
