@@ -4,5 +4,6 @@
 typedef struct pilha pilha_t;
 
 pilha_t* criar_pilha(int capacidade);
+void empilhar(pilha_t* pilha, int elemento);
 
 #endif
