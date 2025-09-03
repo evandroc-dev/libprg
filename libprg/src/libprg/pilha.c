@@ -1,10 +1,9 @@
 //
 // Created by aluno on 02/09/2025.
 //
-#include <stdio.h>
-
 #include "libprg/libprg.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 struct pilha {
     int* elementos;
@@ -62,6 +61,7 @@ int tamanho(pilha_t* pilha) {
 }
 
 void imprimir(pilha_t* pilha) {
+    printf("imprimindo pilha: ");
     for (int i=0; i<=pilha->topo; i++) {
         printf("%d ", pilha->elementos[i]);
     }
