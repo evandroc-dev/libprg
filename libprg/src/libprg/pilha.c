@@ -1,6 +1,8 @@
 //
 // Created by aluno on 02/09/2025.
 //
+#include <stdio.h>
+
 #include "libprg/libprg.h"
 #include <stdlib.h>
 
@@ -57,4 +59,10 @@ int topo(pilha_t* pilha) {
 
 int tamanho(pilha_t* pilha) {
     return pilha->topo + 1;
+}
+
+void imprimir(pilha_t* pilha) {
+    for (int i=0; i<=pilha->topo; i++) {
+        printf("%d ", pilha->elementos[i]);
+    }
 }
