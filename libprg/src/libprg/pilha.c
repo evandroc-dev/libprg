@@ -54,3 +54,7 @@ int topo(pilha_t* pilha) {
         return elemento;
     }
 }
+
+int tamanho(pilha_t* pilha) {
+    return pilha->topo + 1;
+}
