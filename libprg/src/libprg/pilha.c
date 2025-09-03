@@ -45,3 +45,12 @@ void destroi_pilha(pilha_t* pilha) {
     free(pilha->elementos);
     free(pilha);
 }
+
+int topo(pilha_t* pilha) {
+    if(pilha->topo < 0) {
+        return -1; //erro de pilha vazia
+    } else {
+        int elemento = pilha->elementos[pilha->topo];
+        return elemento;
+    }
+}
