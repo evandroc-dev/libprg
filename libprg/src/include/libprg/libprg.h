@@ -18,4 +18,7 @@ void imprimir(pilha_t* pilha);
 typedef struct fila fila_t;
 fila_t criar_fila(int capacidade);
 bool cheia(fila_t fila);
+int desenfileirar(fila_t* fila);
+int tamanho(fila_t* fila);
+void destruir_fila(fila_t* fila);
 #endif

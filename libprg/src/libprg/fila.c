@@ -4,39 +4,55 @@
 #include "libprg/libprg.h"
 #include  <stdlib.h>
 #include <stdbool.h>
+#include <stdio.h>
+
 typedef struct fila {
-    int* elementos;
+    int *elementos;
     int tamanho;
     int inicio;
     int fim;
     int capacidade;
-}; fila_t;
+};
+
+fila_t;
 
 fila_t criar_fila(int capacidade) {
+    fila_t *f = malloc(sizeof(fila_t));
 
-    fila_t* f = malloc(sizeof(fila_t));
-
-    f->elementos = malloc(capacidade *sizeof(int));
+    f->elementos = malloc(capacidade * sizeof(int));
 
     f->inicio = 0;
     f->fim = 0;
     f->tamanho = capacidade;
+    //desafio tirar a capacidade
     f->capacidade = capacidade;
 
-    return f;
+    return *f;
 }
 
-void enfileirar(fila_t*, int valor) {
-
-    if (cheia(fila)) {
-        exit(exit_failure);
+void enfileirar(fila_t* fila, int valor) {
+    if (cheia(*fila)) {
+        exit(EXIT_FAILURE);
     }
 
-    fila.elementos[fila.fim] = valor;
-    fila.fim++;
-    fila.tamanho++;
+    fila->elementos[fila->fim] = valor;
+    fila->fim = (fila->fim + 1) % fila->capacidade;
+    fila->tamanho++;
 }
 
+int desenfileirar(fila_t* fila) {
+    if (vazia(fila)) {
+        exit(EXIT_FAILURE);
+    }
+    int valor = fila->elementos[fila->inicio];
+    fila->inicio = (fila->inicio + 1) % fila->capacidade;
+    fila->tamanho--;
+    return valor;
+}
+
+int tamanho(fila_t* fila) {
+    return fila->tamanho;
+}
 // enfileirar
 // desenfileirar
 // inicio
@@ -44,8 +60,13 @@ void enfileirar(fila_t*, int valor) {
 // tamanho
 // vazia
 bool cheia(fila_t fila) {
-    return fila.tamanho >= fila.capacidade;
-
+    return fila->tamanho >= fila->capacidade;
 }
-// destruir_fila
 
+// destruir_fila
+void destruir_fila(fila_t* fila) {
+    if (fila) {
+        free(fila->elementos);
+        free(fila);
+    }
+}
