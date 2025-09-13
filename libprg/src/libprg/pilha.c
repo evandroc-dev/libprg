@@ -65,4 +65,5 @@ void imprimir(pilha_t* pilha) {
     for (int i=0; i<=pilha->topo; i++) {
         printf("%d ", pilha->elementos[i]);
     }
+    printf("\n");
 }
