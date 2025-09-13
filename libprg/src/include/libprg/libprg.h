@@ -10,5 +10,8 @@ void empilhar(pilha_t* pilha, int elemento);
 int desempilhar(pilha_t* pilha);
 bool vazia(pilha_t* pilha);
 void destroi_pilha(pilha_t* pilha);
+int topo(pilha_t* pilha);
+int tamanho(pilha_t* pilha);
+void imprimir(pilha_t* pilha);
 
 #endif

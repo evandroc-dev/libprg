@@ -3,6 +3,7 @@
 //
 #include "libprg/libprg.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 struct pilha {
     int* elementos;
@@ -44,4 +45,25 @@ bool vazia(pilha_t* pilha) {
 void destroi_pilha(pilha_t* pilha) {
     free(pilha->elementos);
     free(pilha);
+}
+
+int topo(pilha_t* pilha) {
+    if(pilha->topo < 0) {
+        return -1; //erro de pilha vazia
+    } else {
+        int elemento = pilha->elementos[pilha->topo];
+        return elemento;
+    }
+}
+
+int tamanho(pilha_t* pilha) {
+    return pilha->topo + 1;
+}
+
+void imprimir(pilha_t* pilha) {
+    printf("imprimindo pilha: ");
+    for (int i=0; i<=pilha->topo; i++) {
+        printf("%d ", pilha->elementos[i]);
+    }
+    printf("\n");
 }
