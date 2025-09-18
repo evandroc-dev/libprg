@@ -1,15 +1,16 @@
 #include <tgmath.h>
 
 #include "libprg/libprg.h"
-
+#include <stdlib.h>
 
 typedef struct lista_linear {
     int* elementos;
     int tamanho;
     int capacidade;
+    bool ordenada;
 };lista_linear_t;
 
-lista_linear_t* criar_lista_linear(int capacidade) {
+lista_linear_t* criar_lista_linear(int capacidade, bool ordenada) {
 
     lista_linear_t* lista = malloc(sizeof(lista_linear_t));
 
@@ -17,14 +18,43 @@ lista_linear_t* criar_lista_linear(int capacidade) {
 
     lista->tamanho = 0;
     lista->capacidade = capacidade;
+    lista->ordenada = ordenada;
 
     return lista;
 }
-void inserir(lista_linear_t* lista, int valor) {
+void inserir_nao_ordenada (lista_linear_t* lista, int  valor) {
     lista->elementos[lista->tamanho] = valor;
     lista->tamanho++;
 }
+void inserir_ordenada(lista_linear_t* lista, int  valor) {
+    if (!lista_cheia(lista)) {
 
+
+        for (int i = lista->tamanho - 1; i>= 0; --i) {
+            if (lista->elementos[i] < valor) {
+                lista->elementos[i +1] = valor;
+                break;
+            } else {
+                lista->elementos[i + 1] = lista->elementos[i];
+            }
+        }
+        lista->tamanho++;
+    }
+}
+
+
+void inserir(lista_linear_t* lista, int valor) {
+    if (lista_cheia(lista)) return;
+
+        if (lista->ordenada) {
+            inserir_ordenada(lista, valor);
+            //algoritmo para lista ordenada
+        } else {
+            lista->elementos[lista->tamanho] = valor;
+            lista->tamanho++;
+        }
+
+}
 bool lista_cheia(lista_linear_t* lista) {
     lista->tamanho == lista->capacidade;
 }

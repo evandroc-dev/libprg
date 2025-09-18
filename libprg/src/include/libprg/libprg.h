@@ -24,6 +24,6 @@ void destruir_fila(fila_t* fila);
 #endif
 
 typedef struct lista_linear lista_linear_t;
-lista_linear_t* criar_lista_linear(int capacidade);
+lista_linear_t* criar_lista_linear(int capacidade, bool ordenada);
 void inserir(lista_linear_t* lista, int valor);
 bool lista_cheia(lista_linear_t* lista);
