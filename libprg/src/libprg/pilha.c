@@ -34,7 +34,7 @@ int desempilhar(pilha_t* pilha) {
     }
 }
 
-bool vazia(pilha_t* pilha) {
+bool pilha_vazia(pilha_t* pilha) {
     if(pilha->topo < 0) {
         return true;
     } else {
@@ -56,7 +56,7 @@ int topo(pilha_t* pilha) {
     }
 }
 
-int tamanho(pilha_t* pilha) {
+int tamanho_pilha(pilha_t* pilha) {
     return pilha->topo + 1;
 }
 
