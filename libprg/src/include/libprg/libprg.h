@@ -32,3 +32,8 @@ typedef struct lista_linear lista_linear_t;
 lista_linear_t* criar_lista_linear(int capacidade, bool ordenada);
 void inserir(lista_linear_t* lista, int valor);
 bool lista_cheia(lista_linear_t* lista);
+
+//Lista encadeada
+typedef struct no no_t;
+no_t* criar_lista_encadeada (int valor);
+no_t* adicionar(no_t* inicio, int valor);
