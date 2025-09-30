@@ -25,6 +25,51 @@ no_t* adicionar(no_t* inicio, int valor) {
 
     return inicio;
 }
+
+void adicionar_circular(no_t** inicio, int valor) {
+    no_t* novo_no = criar_lista_encadeada_circular(valor);
+    novo_no->proximo = *inicio;
+
+    no_t* ultimo = *inicio;
+
+    while (ultimo->proximo != *inicio) {
+        ultimo = ultimo->proximo;
+    }
+    ultimo->proximo = *inicio;
+}
+
+no_t* buscar_lista_encadeada(no_t** inicio, int valor) {
+    no_t* atual = *inicio;
+
+
+    while (atual) {
+        if (atual->valor) {
+            return atual;
+        }
+        atual = atual->proximo;
+    }
+    return NULL;
+}
+
+void remover(no_t** inicio, int valor) {
+    no_t *atual = *inicio;
+    no_t *anterior = NULL;
+
+    while (atual) {
+        if (atual->valor == valor) {
+            if (anterior) {
+                anterior->proximo = atual->proximo;
+
+            } else {
+                *inicio = atual->proximo;
+            }
+            free(atual);
+        } else {
+            anterior = atual;
+            atual = atual->proximo;
+        }
+    }
+}
 // remover
 // destruir
 // buscar

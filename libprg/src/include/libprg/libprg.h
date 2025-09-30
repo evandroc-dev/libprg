@@ -37,3 +37,5 @@ bool lista_cheia(lista_linear_t* lista);
 typedef struct no no_t;
 no_t* criar_lista_encadeada (int valor);
 no_t* adicionar(no_t* inicio, int valor);
+no_t* buscar_lista_encadeada(no_t** inicio, int valor);
+void remover(no_t** inicio, int valor);
