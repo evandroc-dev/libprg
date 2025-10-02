@@ -70,6 +70,21 @@ void remover(no_t** inicio, int valor) {
         }
     }
 }
+
+void destruir_lista_encadeada(no_t** inicio) {
+    no_t* atual = *inicio;
+    no_t* proximo = atual->proximo;
+
+    while (atual != NULL) {
+        proximo = atual->proximo;
+        free(atual);
+        if (proximo == *inicio) break;
+
+        atual = proximo;
+    }
+
+    *inicio = NULL;
+}
 // remover
 // destruir
 // buscar
