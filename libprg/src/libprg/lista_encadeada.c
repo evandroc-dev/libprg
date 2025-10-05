@@ -7,7 +7,7 @@
 typedef struct no {
     int valor;
     struct no* proximo;
-};no_t;
+}no_t;
 
 no_t* criar_lista_encadeada (int valor) {
     no_t* no = malloc(sizeof(no_t));
@@ -25,6 +25,8 @@ no_t* adicionar(no_t* inicio, int valor) {
 
     return inicio;
 }
+
+no_t * criar_lista_encadeada_circular(int valor);
 
 void adicionar_circular(no_t** inicio, int valor) {
     no_t* novo_no = criar_lista_encadeada_circular(valor);
