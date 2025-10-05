@@ -17,7 +17,7 @@ void imprimir(pilha_t* pilha);
 //Fila
 
 typedef struct fila fila_t;
-fila_t criar_fila(int capacidade);
+fila_t* criar_fila(int capacidade);
 bool cheia(fila_t* fila);
 bool fila_vazia(fila_t* fila);
 int fila_inicio(fila_t* fila);
