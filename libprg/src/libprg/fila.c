@@ -12,11 +12,9 @@ typedef struct fila {
     int inicio;
     int fim;
     int capacidade;
-};
+} fila_t;
 
-fila_t;
-
-fila_t criar_fila(int capacidade) {
+fila_t* criar_fila(int capacidade) {
     fila_t *f = malloc(sizeof(fila_t));
 
     f->elementos = malloc(capacidade * sizeof(int));
@@ -27,7 +25,7 @@ fila_t criar_fila(int capacidade) {
     //desafio tirar a capacidade
     f->capacidade = capacidade;
 
-    return *f;
+    return f;
 }
 
 void enfileirar(fila_t* fila, int valor) {
