@@ -22,21 +22,30 @@ bool cheia(fila_t* fila);
 bool fila_vazia(fila_t* fila);
 int fila_inicio(fila_t* fila);
 int fila_fim(fila_t* fila);
-int enfileirar(fila_t* fila, int elemento);
+void enfileirar(fila_t* fila, int elemento);
 int desenfileirar(fila_t* fila);
 int tamanho_fila(fila_t* fila);
 void destruir_fila(fila_t* fila);
 #endif
 
-//Lista
+//Lista linear
 typedef struct lista_linear lista_linear_t;
 lista_linear_t* criar_lista_linear(int capacidade, bool ordenada);
+void inserir_nao_ordenada (lista_linear_t* lista, int  valor);
+void inserir_ordenada(lista_linear_t* lista, int  valor);
 void inserir(lista_linear_t* lista, int valor);
 bool lista_cheia(lista_linear_t* lista);
+void remover(lista_linear_t* lista, int valor);
+int buscar(lista_linear_t* lista, int valor);
+int buscar_na_posicao(lista_linear_t* lista, int posicao);
+void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao);
+void remover_da_posicao(lista_linear_t* lista, int posicao);
+bool lista_vazia(lista_linear_t* lista);
+void destruir_lista(lista_linear_t* lista);
 
 //Lista encadeada
 typedef struct no no_t;
 no_t* criar_lista_encadeada (int valor);
 no_t* adicionar(no_t* inicio, int valor);
 no_t* buscar_lista_encadeada(no_t** inicio, int valor);
-void remover(no_t** inicio, int valor);
+void remover_lista_encadeada(no_t** inicio, int valor);
