@@ -2,6 +2,7 @@
 
 #include "libprg/libprg.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct lista_linear {
     int* elementos;
@@ -58,7 +59,7 @@ void inserir(lista_linear_t* lista, int valor) {
 
 void remover(lista_linear_t* lista, int valor) {
 
-    int indice = busca_linear(lista, valor);
+    int indice = buscar(lista, valor);
 
     if (indice > -1) {
         lista->elementos[indice] = lista->elementos[lista->tamanho - 1];
@@ -94,12 +95,28 @@ void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao) {
 }
 
 void remover_da_posicao(lista_linear_t* lista, int posicao) {
+    if (posicao < 0 || posicao >= lista->tamanho) return;
 
-    int valor = lista->elementos[posicao];
-    remover
+    for (int i = posicao; i < lista->tamanho - 1; i++) {
+        lista->elementos[i] = lista->elementos[i + 1];
     }
 
-// remover
-// vazia
+    lista->tamanho--;
+}
+void imprimir_lista(lista_linear_t* lista) {
+    printf("[");
+    for (int i = 0; i < lista->tamanho; i++) {
+        printf("%d", lista->elementos[i]);
+        if (i < lista->tamanho - 1) printf(", ");
+    }
+    printf("]\n");
+}
 
-// destruir
+bool lista_vazia(lista_linear_t* lista) {
+    return lista->tamanho == 0;
+}
+
+void destruir_lista(lista_linear_t* lista) {
+    free(lista->elementos);
+    free(lista);
+}
