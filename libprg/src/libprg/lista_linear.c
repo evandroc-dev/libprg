@@ -55,6 +55,17 @@ void inserir(lista_linear_t* lista, int valor) {
         }
 
 }
+
+void remover(lista_linear_t* lista, int valor) {
+
+    int indice = busca_linear(lista, valor);
+
+    if (indice > -1) {
+        lista->elementos[indice] = lista->elementos[lista->tamanho - 1];
+        lista->tamanho--;
+    }
+}
+
 bool lista_cheia(lista_linear_t* lista) {
     lista->tamanho == lista->capacidade;
 }
@@ -72,6 +83,21 @@ int buscar(lista_linear_t* lista, int valor) {
     return -1;
 }
 
+int buscar_na_posicao(lista_linear_t* lista, int posicao) {
+    return lista->elementos[posicao];
+}
+
+void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao) {
+
+    inserir_nao_ordenada(lista, lista->elementos[posicao]);
+    lista->elementos[posicao] = valor;
+}
+
+void remover_da_posicao(lista_linear_t* lista, int posicao) {
+
+    int valor = lista->elementos[posicao];
+    remover
+    }
 
 // remover
 // vazia
