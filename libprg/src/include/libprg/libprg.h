@@ -22,6 +22,7 @@ bool cheia(fila_t* fila);
 bool fila_vazia(fila_t* fila);
 int fila_inicio(fila_t* fila);
 int fila_fim(fila_t* fila);
+int enfileirar(fila_t* fila, int elemento);
 int desenfileirar(fila_t* fila);
 int tamanho_fila(fila_t* fila);
 void destruir_fila(fila_t* fila);
