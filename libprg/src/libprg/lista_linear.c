@@ -120,3 +120,15 @@ void destruir_lista(lista_linear_t* lista) {
     free(lista->elementos);
     free(lista);
 }
+
+int primeiro_elemento(lista_linear_t* lista) {
+    if (lista_vazia(lista)) {
+        printf("Erro: lista vazia.\n");
+        return -1; // ou outro valor sentinela
+    }
+    return lista->elementos[0];
+}
+
+int tamanho_atual(lista_linear_t* lista) {
+    return lista->tamanho;
+}
