@@ -42,6 +42,7 @@ void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao);
 void remover_da_posicao(lista_linear_t* lista, int posicao);
 bool lista_vazia(lista_linear_t* lista);
 void destruir_lista(lista_linear_t* lista);
+void imprimir_lista(lista_linear_t* lista);
 
 //Lista encadeada
 typedef struct no no_t;
