@@ -45,6 +45,7 @@ void destruir_lista(lista_linear_t* lista);
 void imprimir_lista(lista_linear_t* lista);
 int primeiro_elemento(lista_linear_t* lista);
 int tamanho_atual(lista_linear_t* lista);
+int buscar_binaria_iterativa(lista_linear_t* lista, int valor);
 
 //Lista encadeada
 typedef struct no no_t;
