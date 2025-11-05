@@ -132,3 +132,24 @@ int primeiro_elemento(lista_linear_t* lista) {
 int tamanho_atual(lista_linear_t* lista) {
     return lista->tamanho;
 }
+
+int buscar_binaria_iterativa(lista_linear_t* lista, int valor) {
+    if (!lista->ordenada) {
+        printf("Busca binária requer lista ordenada.\n");
+        return -1;
+    }
+
+    int inicio = 0;
+    int fim = lista->tamanho - 1;
+
+    while (inicio <= fim) {
+        int meio = (inicio + fim) / 2;
+        if (lista->elementos[meio] == valor)
+            return meio;
+        else if (lista->elementos[meio] < valor)
+            inicio = meio + 1;
+        else
+            fim = meio - 1;
+    }
+    return -1;
+}
