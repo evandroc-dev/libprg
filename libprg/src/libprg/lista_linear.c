@@ -68,7 +68,7 @@ void remover(lista_linear_t* lista, int valor) {
 }
 
 bool lista_cheia(lista_linear_t* lista) {
-    lista->tamanho == lista->capacidade;
+    return lista->tamanho == lista->capacidade;
 }
 
 int buscar(lista_linear_t* lista, int valor) {
