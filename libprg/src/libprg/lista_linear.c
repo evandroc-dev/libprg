@@ -27,19 +27,19 @@ void inserir_nao_ordenada (lista_linear_t* lista, int  valor) {
     lista->elementos[lista->tamanho] = valor;
     lista->tamanho++;
 }
-void inserir_ordenada(lista_linear_t* lista, int  valor) {
+void inserir_ordenada(lista_linear_t* lista, int valor) {
     if (!lista_cheia(lista)) {
+        int i = lista->tamanho - 1;
 
-
-        for (int i = lista->tamanho - 1; i>= 0; --i) {
-            if (lista->elementos[i] < valor) {
-                lista->elementos[i +1] = valor;
-                break;
-            } else {
-                lista->elementos[i + 1] = lista->elementos[i];
-            }
+        while (i >= 0 && lista->elementos[i] > valor) {
+            lista->elementos[i + 1] = lista->elementos[i];
+            i--;
         }
+
+        lista->elementos[i + 1] = valor;
         lista->tamanho++;
+    } else {
+        printf("Lista cheia, não é possível inserir.\n");
     }
 }
 
