@@ -59,3 +59,9 @@ void destruir_lista_encadeada(no_t** inicio);
 void imprimir_lista_encadeada(no_t* inicio);
 int primeiro_elemento_lista_encadeada(no_t* inicio);
 int tamanho_lista_encadeada(no_t* inicio);
+int buscar_na_posicao_encadeada(no_t* inicio, int posicao);
+void inserir_na_posicao_encadeada(no_t** inicio, int valor, int posicao);
+void remover_da_posicao_encadeada(no_t** inicio, int posicao);
+
+
+//Arvore binaria

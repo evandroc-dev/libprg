@@ -122,3 +122,72 @@ int tamanho_lista_encadeada(no_t* inicio) {
 
     return contador;
 }
+
+int buscar_na_posicao_encadeada(no_t* inicio, int posicao) {
+    int contador = 0;
+    while (inicio != NULL) {
+        if (contador == posicao)
+            return inicio->valor;
+
+        contador++;
+        inicio = inicio->proximo;
+    }
+    printf("Posição inválida!\n");
+    return -1;
+}
+
+void inserir_na_posicao_encadeada(no_t** inicio, int valor, int posicao) {
+    if (posicao == 0) {
+        *inicio = adicionar(*inicio, valor);
+        return;
+    }
+
+    int contador = 0;
+    no_t* atual = *inicio;
+
+    while (atual != NULL && contador < posicao - 1) {
+        atual = atual->proximo;
+        contador++;
+    }
+
+    if (atual == NULL) {
+        printf("Posição inválida!\n");
+        return;
+    }
+
+    no_t* novo_no = criar_lista_encadeada(valor);
+    novo_no->proximo = atual->proximo;
+    atual->proximo = novo_no;
+}
+
+void remover_da_posicao_encadeada(no_t** inicio, int posicao) {
+    if (*inicio == NULL) {
+        printf("Lista vazia.\n");
+        return;
+    }
+
+    if (posicao == 0) {
+        no_t* temp = *inicio;
+        *inicio = (*inicio)->proximo;
+        free(temp);
+        return;
+    }
+
+    int contador = 0;
+    no_t* atual = *inicio;
+    no_t* anterior = NULL;
+
+    while (atual != NULL && contador < posicao) {
+        anterior = atual;
+        atual = atual->proximo;
+        contador++;
+    }
+
+    if (atual == NULL) {
+        printf("Posição inválida!\n");
+        return;
+    }
+
+    anterior->proximo = atual->proximo;
+    free(atual);
+}

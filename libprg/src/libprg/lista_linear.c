@@ -88,10 +88,34 @@ int buscar_na_posicao(lista_linear_t* lista, int posicao) {
     return lista->elementos[posicao];
 }
 
+// void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao) {
+//
+//     inserir_nao_ordenada(lista, lista->elementos[posicao]);
+//     lista->elementos[posicao] = valor;
+// }
 void inserir_na_posicao(lista_linear_t* lista, int valor, int posicao) {
+    if (lista->ordenada) {
+        printf("Erro: não é possível inserir por posição em lista ordenada.\n");
+        return;
+    }
 
-    inserir_nao_ordenada(lista, lista->elementos[posicao]);
+    if (lista_cheia(lista)) {
+        printf("Lista cheia.\n");
+        return;
+    }
+
+    if (posicao < 0 || posicao > lista->tamanho) {
+        printf("Posição inválida.\n");
+        return;
+    }
+
+    // desloca da direita para abrir espaço
+    for (int i = lista->tamanho; i > posicao; i--) {
+        lista->elementos[i] = lista->elementos[i - 1];
+    }
+
     lista->elementos[posicao] = valor;
+    lista->tamanho++;
 }
 
 void remover_da_posicao(lista_linear_t* lista, int posicao) {
